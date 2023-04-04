@@ -1,0 +1,6 @@
+- type: instruction
+  message: Create a new directory for the project and navigate to it
+- type: commands
+  commands:
+    - mkdir ts-runner
+    - cd ts-runner

@@ -1,0 +1,21 @@
+{
+  "name": "test-runner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.2",
+    "@types/js-yaml": "^4.0.5",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.5",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

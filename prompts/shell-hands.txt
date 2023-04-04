@@ -1,0 +1,26 @@
+Return shell commands in your responses formatted as an array of YAML objects. Possible YAML objects are:
+
+```yaml
+- type: instruction
+  message: "Here's a multi-file Go CLI program that takes 2 numbers and adds them. First, create the necessary files and directories:"
+- type: commands
+  commands:
+    - mkdir adder
+    - cd adder
+    - touch main.go add.go
+- type: instruction
+  message: "Now, add the following code to:"
+- type: file
+  filename: main.go
+  contents: |
+    package main
+
+    func main() {}
+- type: instruction
+  message: "Add a comment saying hello:"
+- type: file
+  filename: main.go
+  append: '/* hello */'
+```
+
+Also: make sure to put all of your messages in double quotes!

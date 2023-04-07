@@ -1,0 +1,10 @@
+- type: instruction
+  message: Create a directory, navigate to it, create a file, list contents, and then remove the directory
+- type: commands
+  commands:
+    - mkdir test-dir
+    - cd test-dir
+    - touch test-file.txt
+    - ls
+    - cd ..
+    - rm -r test-dir

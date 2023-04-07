@@ -1,0 +1,8 @@
+- type: instruction
+  message: Create a directory, navigate to it, create a file, and then return to the original directory
+- type: commands
+  commands:
+    - mkdir test-dir
+    - cd test-dir
+    - touch test-file.txt
+    - cd ..

@@ -1,25 +1,23 @@
 import * as fs from 'fs';
 import * as child_process from 'child_process';
 import * as yaml from 'js-yaml';
+import * as path from 'path';
+import * as os from 'os';
 
 export const executeCommands = async (commands: string[]) => {
-  const shell = child_process.spawn('sh', { stdio: 'inherit' });
+  const shellScriptPath = path.join(os.tmpdir(), 'temp_script.sh');
+  fs.writeFileSync(shellScriptPath, commands.join('\n'));
 
-  for (const command of commands) {
-    if (shell.stdin) {
-      shell.stdin.write(`${command}\n`);
-      await new Promise((resolve) => {
-        if (shell.stdout) {
-          shell.stdout.once('data', resolve);
-        }
-      });
-    }
-  }
-
-  if (shell.stdin) {
-    shell.stdin.end();
+  try {
+    const result = child_process.execSync(`bash ${shellScriptPath}`, { stdio: 'inherit' });
+  } catch (error: any) {
+    console.error('Error executing commands:', error.message);
+  } finally {
+    fs.unlinkSync(shellScriptPath);
   }
 };
+
+
 
 export const processYamlObjects = (yamlObjects: any[]) => {
   yamlObjects.forEach(async (obj) => {

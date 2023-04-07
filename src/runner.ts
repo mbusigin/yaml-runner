@@ -4,7 +4,8 @@ import * as yaml from 'js-yaml';
 import * as path from 'path';
 import * as os from 'os';
 
-export const executeCommands = async (commands: string[]) => {
+export const executeCommands =
+ async (commands: string[]) => {
   const shellScriptPath = path.join(os.tmpdir(), 'temp_script.sh');
   fs.writeFileSync(shellScriptPath, commands.join('\n'));
 
@@ -19,7 +20,8 @@ export const executeCommands = async (commands: string[]) => {
 
 
 
-export const processYamlObjects = (yamlObjects: any[]) => {
+export const processYamlObjects =
+ (yamlObjects: any[]) => {
   yamlObjects.forEach(async (obj) => {
     switch (obj.type) {
       case 'commands':
@@ -45,6 +47,7 @@ export const processYamlObjects = (yamlObjects: any[]) => {
 const yamlFilePath = process.argv[2];
 
 if (!yamlFilePath) {
+
   console.error('Please provide a YAML file path as an argument.');
   process.exit(1);
 }
@@ -53,3 +56,6 @@ const yamlContent = fs.readFileSync(yamlFilePath, 'utf-8');
 const yamlObjects = yaml.load(yamlContent);
 
 processYamlObjects(<any> yamlObjects); // TODO: we should have better type safety here....
+// This function executes an array of commands.\n
+// This function processes YAML objects and performs the corresponding actions.\n
+// The main function that reads the YAML file and processes the YAML objects.\n

@@ -2,17 +2,30 @@ import * as fs from 'fs';
 import * as child_process from 'child_process';
 import * as yaml from 'js-yaml';
 
-export const executeCommands = (commands: string[]) => {
-  commands.forEach((command) => {
-    child_process.execSync(command, { stdio: 'inherit' });
-  });
+export const executeCommands = async (commands: string[]) => {
+  const shell = child_process.spawn('sh', { stdio: 'inherit' });
+
+  for (const command of commands) {
+    if (shell.stdin) {
+      shell.stdin.write(`${command}\n`);
+      await new Promise((resolve) => {
+        if (shell.stdout) {
+          shell.stdout.once('data', resolve);
+        }
+      });
+    }
+  }
+
+  if (shell.stdin) {
+    shell.stdin.end();
+  }
 };
 
 export const processYamlObjects = (yamlObjects: any[]) => {
-  yamlObjects.forEach((obj) => {
+  yamlObjects.forEach(async (obj) => {
     switch (obj.type) {
       case 'commands':
-        executeCommands(obj.commands);
+        await executeCommands(obj.commands);
         break;
       case 'instruction':
         console.log(obj.message);

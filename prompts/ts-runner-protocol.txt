@@ -1,3 +1,5 @@
+YAML Runner:
+----------------------------------------
 1. For each natural language instruction, identify the primary action and its related components. The primary action should be one of the following: executing commands, creating or modifying files, or displaying messages.
 
 2. Convert each primary action and its components into a corresponding YAML object using the YAML specification provided earlier.
@@ -7,6 +9,7 @@
    a. If the instruction is about executing commands:
       - Identify the list of commands to be executed.
       - Create a YAML object with `type: commands` and list the commands under the `commands` field.
+      - If you need to update a file, you need to *COMPLETELY* replace its contents with type: file -> contents. Every file must include a complete, unabridged dump of all of its contents.
 
    b. If the instruction is about creating or modifying a file:
       - Identify the file name, file contents, and whether it's a new file or an existing file.
@@ -35,5 +38,6 @@ You would generate the following YAML content:
 - type: instruction
   message: Directory created and navigated.
 ```
+----------------------------------------
 
-If you need to update a file, you need to *COMPLETELY* replace its contents with type: file -> contents. Every file must include all of its contents.
+Understand what the user wants, and translate that into YAML Runner instructions.

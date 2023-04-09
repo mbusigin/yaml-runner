@@ -1,6 +1,6 @@
-# ts-runner
+# yaml-runner
 
-ts-runner is a command-line tool that automates the execution of tasks based on instructions defined in YAML files. It's main purpose is to execute instructions from GPT-4, or other LLMs.
+yaml-runner is a command-line tool that automates the execution of tasks based on instructions defined in YAML files. It's main purpose is to execute instructions from GPT-4, or other LLMs.
 
 ## Features
 
@@ -28,7 +28,7 @@ This project uses the following npm packages:
    ```
 2. Install dependencies:
    ```
-   cd ts-runner
+   cd yaml-runner
    npm install
    ```
 
@@ -78,14 +78,14 @@ Have GPT-4 plan out some changes to your code base. Next, jam this into your sys
 
 Then execute the output instructions:
 
-To run ts-runner, execute the following command with the path to your YAML file:
+To run yaml-runner, execute the following command with the path to your YAML file:
 ```
 node src/runner.js path/to/your/yaml/file.yaml
 ```
 
 ## Examples
 
-See the `test` directory for example YAML files demonstrating various features of ts-runner.
+See the `test` directory for example YAML files demonstrating various features of yaml-runner.
 
 ## Contributing
 

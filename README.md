@@ -1,6 +1,6 @@
 # ts-runner
 
-ts-runner is a command-line tool that automates the execution of tasks based on instructions defined in YAML files. It simplifies complex workflows and improves productivity by allowing users to create reusable, shareable scripts.
+ts-runner is a command-line tool that automates the execution of tasks based on instructions defined in YAML files. It's main purpose is to execute instructions from GPT-4, or other LLMs.
 
 ## Features
 

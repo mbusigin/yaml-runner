@@ -24,7 +24,7 @@ This project uses the following npm packages:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/ts-runner.git
+   git clone https://github.com/mbusigin/yaml-runner
    ```
 2. Install dependencies:
    ```

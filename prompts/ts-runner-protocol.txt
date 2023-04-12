@@ -9,11 +9,12 @@ YAML Runner:
    a. If the instruction is about executing commands:
       - Identify the list of commands to be executed.
       - Create a YAML object with `type: commands` and list the commands under the `commands` field.
-      - If you need to update a file, you need to *COMPLETELY* replace its contents with type: file -> contents. Every file must include a complete, unabridged dump of all of its contents.
 
    b. If the instruction is about creating or modifying a file:
       - Identify the file name, file contents, and whether it's a new file or an existing file.
       - Create a YAML object with `type: file`, and include the `filename`, `contents`, and `append` fields as needed.
+      - To update a file, you need to *COMPLETELY* replace its contents with type: file -> contents. Every file must include a complete, unabridged dump of all of its contents.
+
 
    c. If the instruction is about displaying a message to the user:
       - Identify the message to be displayed.

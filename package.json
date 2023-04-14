@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@types/diff": "^5.0.3",
     "@types/jest": "^27.5.2",
     "@types/js-yaml": "^4.0.5",
     "jest": "^27.5.1",
@@ -16,6 +17,7 @@
   "dependencies": {
     "boxen": "^7.0.2",
     "chalk": "^5.2.0",
+    "diff": "^5.1.0",
     "inquirer": "^9.1.5",
     "js-yaml": "^4.1.0",
     "yargs": "^17.7.1"

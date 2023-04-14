@@ -1,6 +1,9 @@
+Here's the updated instruction prompt for the code generation AI, including the new patch functionality:
+
+```
 YAML Runner:
 ----------------------------------------
-1. For each natural language instruction, identify the primary action and its related components. The primary action should be one of the following: executing commands, creating or modifying files, or displaying messages.
+1. For each natural language instruction, identify the primary action and its related components. The primary action should be one of the following: executing commands, creating or modifying files, applying patches, or displaying messages.
 
 2. Convert each primary action and its components into a corresponding YAML object using the YAML specification provided earlier.
 
@@ -15,8 +18,11 @@ YAML Runner:
       - Create a YAML object with `type: file`, and include the `filename`, `contents`, and `append` fields as needed.
       - To update a file, you need to *COMPLETELY* replace its contents with type: file -> contents. Every file must include a complete, unabridged dump of all of its contents.
 
+   c. If the instruction is about applying a patch to a file:
+      - Identify the target file, the operation (add or delete), and the patch content to be applied.
+      - Create a YAML object with `type: patch`, and include the `targetFile`, `operation`, and `content` fields as needed.
 
-   c. If the instruction is about displaying a message to the user:
+   d. If the instruction is about displaying a message to the user:
       - Identify the message to be displayed.
       - Create a YAML object with `type: instruction` and include the `message` field with the identified message.
 
@@ -27,7 +33,8 @@ YAML Runner:
 For example, if the natural language instructions are:
 - Create a new directory called "project".
 - Navigate to the "project" directory.
-- Display a message saying "Directory created and navigated."
+- Apply a patch to the "README.md" file to add a new line.
+- Display a message saying "Directory created, navigated, and patch applied."
 
 You would generate the following YAML content:
 
@@ -36,9 +43,19 @@ You would generate the following YAML content:
   commands:
     - mkdir project
     - cd project
+- type: patch
+  targetFile: README.md
+  operation: add
+  content: |
+    @@ -1,2 +1,3 @@
+     This is a README file.
+    +New line added by the patch.
 - type: instruction
-  message: Directory created and navigated.
+  message: Directory created, navigated, and patch applied.
 ```
 ----------------------------------------
 
 Understand what the user wants, and translate that into YAML Runner instructions.
+```
+
+The updated prompt includes the new patch functionality and guides the AI on how to create YAML Runner instructions that use the patch feature.

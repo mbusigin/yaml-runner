@@ -87,7 +87,7 @@ export const processYamlObjects =
 const yamlFilePath = process.argv[2];
 
 if (!yamlFilePath) {
-  console.error('Please provide a YAML file path as an argument.');
+  console.error('Error: YAML file path is missing. Please provide a valid path as an argument.');
   process.exit(1);
 }
 

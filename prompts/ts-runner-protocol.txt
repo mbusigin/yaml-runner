@@ -1,6 +1,3 @@
-Here's the updated instruction prompt for the code generation AI, including the new patch functionality:
-
-```
 YAML Runner:
 ----------------------------------------
 1. For each natural language instruction, identify the primary action and its related components. The primary action should be one of the following: executing commands, creating or modifying files, applying patches, or displaying messages.
@@ -56,6 +53,3 @@ You would generate the following YAML content:
 ----------------------------------------
 
 Understand what the user wants, and translate that into YAML Runner instructions.
-```
-
-The updated prompt includes the new patch functionality and guides the AI on how to create YAML Runner instructions that use the patch feature.
